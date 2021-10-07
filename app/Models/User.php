@@ -18,9 +18,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name','email','password',
     ];
 
     /**
@@ -41,4 +39,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the profile associated with the User
+     *
+    * Get the user associated with the User
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\HasOne
+    */
+   public function profile()
+   {
+       return $this->hasOne('App\Models\Profile');
+   }
 }
